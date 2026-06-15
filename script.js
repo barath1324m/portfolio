@@ -1,63 +1,9 @@
-/* ==========================
-   Portfolio Script
-========================== */
+```javascript
+// ===============================
+// Mobile Menu
+// ===============================
 
-// Loader
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-
-  if (loader) {
-    loader.style.transition = "opacity 0.6s ease";
-    loader.style.opacity = "0";
-
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 600);
-  }
-});
-
-// Typing Effect
-const roles = [
-  "Full Stack Developer",
-  "Java Developer",
-  "Spring Boot Developer",
-  "React Enthusiast",
-  "Front End Developer"
-];
-
-const typing = document.getElementById("typing");
-
-let roleIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-function typeEffect() {
-  if (!typing) return;
-
-  const current = roles[roleIndex];
-
-  if (!deleting) {
-    typing.textContent = current.substring(0, charIndex++);
-    if (charIndex > current.length) {
-      deleting = true;
-      setTimeout(typeEffect, 1500);
-      return;
-    }
-  } else {
-    typing.textContent = current.substring(0, charIndex--);
-    if (charIndex < 0) {
-      deleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-    }
-  }
-
-  setTimeout(typeEffect, deleting ? 50 : 100);
-}
-
-typeEffect();
-
-// Mobile Menu Toggle
-const menuBtn = document.getElementById("menu");
+const menuBtn = document.getElementById("menu-btn");
 const nav = document.getElementById("nav");
 
 if (menuBtn && nav) {
@@ -65,131 +11,212 @@ if (menuBtn && nav) {
     nav.classList.toggle("show");
   });
 
-  document.querySelectorAll("#nav a").forEach(link => {
+  document.querySelectorAll("#nav a").forEach((link) => {
     link.addEventListener("click", () => {
       nav.classList.remove("show");
     });
   });
 }
 
-// Sticky Header Shadow
-const header = document.querySelector("header");
+// ===============================
+// Typing Effect
+// ===============================
 
-window.addEventListener("scroll", () => {
-  if (!header) return;
+const typingElement = document.getElementById("typing");
 
-  if (window.scrollY > 50) {
-    header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)";
-  } else {
-    header.style.boxShadow = "none";
-  }
-});
+const roles = [
+  "Full Stack Developer",
+  "Java Developer",
+  "Spring Boot Developer",
+  "React Developer",
+  "Frontend Developer"
+];
 
-// Scroll Reveal
-const revealElements = document.querySelectorAll(
-  ".project-card, .skill, .timeline-item, .box"
-);
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-function revealOnScroll() {
-  const trigger = window.innerHeight * 0.85;
+function typeEffect() {
 
-  revealElements.forEach((element) => {
-    const top = element.getBoundingClientRect().top;
+  if (!typingElement) return;
 
-    if (top < trigger) {
-      element.style.opacity = "1";
-      element.style.transform = "translateY(0)";
-      element.style.transition = "all 0.8s ease";
-    }
-  });
-}
+  const currentRole = roles[roleIndex];
 
-// Initial hidden state
-revealElements.forEach((element) => {
-  element.style.opacity = "0";
-  element.style.transform = "translateY(40px)";
-});
+  if (!isDeleting) {
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+    typingElement.textContent =
+      currentRole.substring(0, charIndex + 1);
 
-// Active Navigation Link
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+    charIndex++;
 
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.clientHeight;
-
-    if (window.scrollY >= sectionTop &&
-        window.scrollY < sectionTop + sectionHeight) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-});
-
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const target = document.querySelector(this.getAttribute("href"));
-
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
-  });
-});
-
-// Contact Form Validation
-const form = document.querySelector("form");
-
-if (form) {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const name = form.querySelector('input[type="text"]');
-    const email = form.querySelector('input[type="email"]');
-    const message = form.querySelector("textarea");
-
-    if (
-      !name.value.trim() ||
-      !email.value.trim() ||
-      !message.value.trim()
-    ) {
-      alert("Please fill in all fields.");
+    if (charIndex === currentRole.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1500);
       return;
     }
 
-    alert("Thank you! Your message has been submitted.");
+  } else {
 
-    form.reset();
+    typingElement.textContent =
+      currentRole.substring(0, charIndex - 1);
+
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+    }
+
+  }
+
+  setTimeout(typeEffect, isDeleting ? 50 : 100);
+
+}
+
+typeEffect();
+
+// ===============================
+// Sticky Header
+// ===============================
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+  if (!header) return;
+
+  if (window.scrollY > 40) {
+
+    header.style.background =
+      "rgba(9,9,15,0.95)";
+
+  } else {
+
+    header.style.background =
+      "rgba(9,9,15,0.75)";
+
+  }
+
+});
+
+// ===============================
+// Scroll Reveal
+// ===============================
+
+const revealElements = document.querySelectorAll(
+  ".about-card, .skill-card, .project-card, .timeline-item"
+);
+
+const revealObserver = new IntersectionObserver(
+
+  (entries) => {
+
+    entries.forEach((entry) => {
+
+      if (entry.isIntersecting) {
+
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+
+      }
+
+    });
+
+  },
+
+  {
+    threshold: 0.15
+  }
+
+);
+
+revealElements.forEach((element) => {
+
+  element.style.opacity = "0";
+  element.style.transform = "translateY(40px)";
+  element.style.transition = "all 0.7s ease";
+
+  revealObserver.observe(element);
+
+});
+
+// ===============================
+// Active Navigation
+// ===============================
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("#nav a");
+
+window.addEventListener("scroll", () => {
+
+  let current = "";
+
+  sections.forEach((section) => {
+
+    const top = section.offsetTop - 120;
+    const height = section.offsetHeight;
+
+    if (
+      window.scrollY >= top &&
+      window.scrollY < top + height
+    ) {
+      current = section.id;
+    }
+
   });
+
+  navLinks.forEach((link) => {
+
+    link.classList.remove("active");
+
+    if (link.getAttribute("href") === "#" + current) {
+
+      link.classList.add("active");
+
+    }
+
+  });
+
+});
+
+// ===============================
+// Smooth Scroll
+// ===============================
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+
+  anchor.addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    const target =
+      document.querySelector(this.getAttribute("href"));
+
+    if (target) {
+
+      target.scrollIntoView({
+
+        behavior: "smooth"
+
+      });
+
+    }
+
+  });
+
+});
+
+// ===============================
+// Footer Copyright Year
+// ===============================
+
+const copyright =
+  document.querySelector(".copyright");
+
+if (copyright) {
+
+  copyright.textContent =
+    `© ${new Date().getFullYear()} Barath M. All Rights Reserved.`;
+
 }
-
-// Floating Blob Animation
-const blob = document.querySelector(".blob");
-
-if (blob) {
-  let angle = 0;
-
-  setInterval(() => {
-    angle += 0.02;
-
-    blob.style.transform =
-      `translate(${Math.sin(angle) * 12}px, ${Math.cos(angle) * 12}px)`;
-  }, 30);
-}
+```

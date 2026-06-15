@@ -1,315 +1,722 @@
+# `index.html` (Part 1 of 2)
+
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Barath | Full Stack Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-  <!-- Icons -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>Barath M | Full Stack Developer</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+    <!-- Google Font -->
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="style.css">
+
 </head>
 
 <body>
 
-<div id="loader"></div>
+    <!-- Background -->
 
-<header>
-  <div class="logo">
-    &lt;Barath<span>/&gt;</span>
-  </div>
+    <div class="bg-circle bg1"></div>
 
-  <nav id="nav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#timeline">Journey</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <div class="bg-circle bg2"></div>
 
-  <div id="menu">
-    <i class="fa-solid fa-bars"></i>
-  </div>
-</header>
+    <!-- Header -->
 
-<!-- ================= HERO ================= -->
+    <header>
 
-<section id="home" class="hero">
+        <div class="container nav-wrapper">
 
-  <div class="hero-left">
+            <a href="#" class="logo">
 
-    <p class="tag">👋 Hello I'm</p>
+                &lt;Barath /&gt;
 
-    <h1>
-      Barath M
-    </h1>
+            </a>
 
-    <h2>
-      <span id="typing"></span>
-    </h2>
+            <nav id="nav">
 
-    <p class="desc">
-      Passionate Full Stack Developer building scalable web applications
-      using Java, Spring Boot, React, JavaScript and PostgreSQL.
-      I love creating modern digital experiences with clean UI and
-      high-performance backend systems.
-    </p>
+                <a href="#home">Home</a>
 
-    <div class="hero-buttons">
+                <a href="#about">About</a>
 
-      <a href="#projects" class="btn">
-        View Projects
-      </a>
+                <a href="#skills">Skills</a>
 
-      <a href="assets/resume.pdf" class="btn outline" download>
-        Download Resume
-      </a>
+                <a href="#projects">Projects</a>
 
-    </div>
+                <a href="#contact">Contact</a>
 
-    <div class="socials">
+            </nav>
 
-      <a href="https://github.com/barath1324m" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
+            <div id="menu-btn">
 
-      <a href="https://linkedin.com/in/barath01/" target="_blank">
-        <i class="fab fa-linkedin"></i>
-      </a>
+                <i class="fa-solid fa-bars"></i>
 
-      <a href="mailto:barath1324m@gmail.com">
-        <i class="fa-solid fa-envelope"></i>
-      </a>
+            </div>
 
-    </div>
+        </div>
 
-  </div>
+    </header>
 
-  <div class="hero-right">
+    <!-- HERO -->
 
-    <div class="blob"></div>
+    <section id="home" class="hero">
 
-    <div class="profile-card">
+        <div class="container hero-container">
 
-      <img src="assets/profile.png" alt="Profile">
+            <!-- LEFT -->
 
-    </div>
+            <div class="hero-left">
 
-  </div>
+                <span class="badge">
 
-</section>
+                    <> Full Stack Developer
 
-<!-- ================= ABOUT ================= -->
+                </span>
 
-<section id="about">
+                <h1>
 
-  <h2 class="title">
-    About Me
-  </h2>
+                    Building
 
-  <div class="about-grid">
+                    <span>
 
-    <div>
+                        Beautiful
 
-      <h3>
-        Full Stack Developer
-      </h3>
+                    </span>
 
-      <p>
-        I specialize in creating responsive websites and
-        scalable backend APIs with Java Spring Boot.
-        I enjoy solving real-world problems through clean code
-        and user-friendly interfaces.
-      </p>
+                    Digital Products.
 
-    </div>
+                </h1>
 
-    <div class="stats">
+                <h2 id="typing">
 
-      <div class="box">
-        <h2>10+</h2>
-        <span>Technologies</span>
-      </div>
+                </h2>
 
-      <div class="box">
-        <h2>3+</h2>
-        <span>Major Projects</span>
-      </div>
+                <p>
 
-      <div class="box">
-        <h2>100%</h2>
-        <span>Passion</span>
-      </div>
+                    Passionate Full Stack Developer
+                    specializing in Java, Spring Boot,
+                    JavaScript, React and PostgreSQL.
 
-    </div>
+                    I create modern responsive websites
+                    with scalable backend systems and
+                    elegant user experiences.
 
-  </div>
+                </p>
 
-</section>
+                <div class="hero-buttons">
 
-<!-- ================= SKILLS ================= -->
+                    <a href="#projects"
+                        class="primary-btn">
 
-<section id="skills">
+                        View Projects
 
-  <h2 class="title">
-    Skills
-  </h2>
+                    </a>
 
-  <div class="skills-grid">
+                    <a href="#contact"
+                        class="secondary-btn">
 
-    <div class="skill">HTML5</div>
-    <div class="skill">CSS3</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">React</div>
-    <div class="skill">Java</div>
-    <div class="skill">Spring Boot</div>
-    <div class="skill">REST API</div>
-    <div class="skill">PostgreSQL</div>
-    <div class="skill">MySQL</div>
-    <div class="skill">Git</div>
-    <div class="skill">GitHub</div>
-    <div class="skill">Netlify</div>
+                        Contact Me
 
-  </div>
+                    </a>
 
-</section>
+                </div>
 
-<!-- ================= PROJECTS ================= -->
+                <div class="social-icons">
 
-<section id="projects">
+                    <a target="_blank"
+                        href="https://github.com/barath1324m">
 
-  <h2 class="title">
-    Featured Projects
-  </h2>
+                        <i class="fab fa-github"></i>
 
-  <div class="project-grid">
+                    </a>
 
-    <div class="project-card">
+                    <a target="_blank"
+                        href="https://linkedin.com/in/barath01">
 
-      <h3>ZakApps / LuxeVibe</h3>
+                        <i class="fab fa-linkedin"></i>
 
-      <p>
-        Responsive shopping website with elegant UI,
-        product showcase and modern frontend design.
-      </p>
+                    </a>
 
-      <div class="links">
-        <a href="https://luxevibe1.netlify.app/" target="_blank">
-          Live Demo
-        </a>
+                    <a href="mailto:barath1324m@gmail.com">
 
-        <a href="https://github.com/barath1324m/ZakApps" target="_blank">
-          GitHub
-        </a>
-      </div>
+                        <i class="fa-solid fa-envelope"></i>
 
-    </div>
+                    </a>
 
-    <div class="project-card">
+                </div>
 
-      <h3>MK Training Center</h3>
+            </div>
 
-      <p>
-        Responsive training website with student registration,
-        animations and admin integration.
-      </p>
+            <!-- RIGHT -->
 
-      <div class="links">
-        <a href="https://mktrainingcenter.netlify.app/" target="_blank">
-          Live Demo
-        </a>
+            <div class="hero-right">
 
-        <a href="https://github.com/barath1324m/mk-training-center" target="_blank">
-          GitHub
-        </a>
-      </div>
+                <div class="code-window">
 
-    </div>
+                    <div class="window-top">
 
-    <div class="project-card">
+                        <span class="red"></span>
 
-      <h3>MK Training Center Backend</h3>
+                        <span class="yellow"></span>
 
-      <p>
-        Spring Boot REST API with PostgreSQL backend for
-        managing registrations and data.
-      </p>
+                        <span class="green"></span>
 
-      <div class="links">
-        <a href="https://github.com/barath1324m/mk-training-center-backend"
-          target="_blank">
-          GitHub
-        </a>
-      </div>
+                    </div>
 
-    </div>
+<pre>
+const developer = {
 
-  </div>
+ name : "Barath",
 
-</section>
+ role : "Full Stack",
 
-<!-- ================= TIMELINE ================= -->
+ stack : [
 
-<section id="timeline">
+   "HTML",
 
-  <h2 class="title">
-    My Journey
-  </h2>
+   "CSS",
 
-  <div class="timeline">
+   "JavaScript",
 
-    <div class="timeline-item">
-      🎓 B.Tech Information Technology
-    </div>
+   "React",
 
-    <div class="timeline-item">
-      💼 Full Stack Developer Internship
-    </div>
+   "Java",
 
-    <div class="timeline-item">
-      🚀 Java Full Stack Certification
-    </div>
+   "Spring Boot",
 
-  </div>
+   "PostgreSQL"
 
-</section>
+ ],
 
-<!-- ================= CONTACT ================= -->
+ passion :
 
-<section id="contact">
+ "Building modern web apps"
 
-  <h2 class="title">
-    Contact Me
-  </h2>
+}
+</pre>
 
-  <form>
+                </div>
 
-    <input type="text" placeholder="Name">
+            </div>
 
-    <input type="email" placeholder="Email">
+        </div>
 
-    <textarea rows="6"
-      placeholder="Write your message..."></textarea>
+    </section>
 
-    <button>
-      Send Message
-    </button>
+    <!-- ABOUT -->
 
-  </form>
+    <section
+        id="about"
+        class="section">
 
-</section>
+        <div class="container">
 
-<footer>
+            <span class="section-tag">
 
-  © 2026 Barath M | Full Stack Developer
+                ABOUT
 
-</footer>
+            </span>
 
-<script src="script.js"></script>
+            <h2 class="section-title">
+
+                Designing and Developing
+                Modern Applications
+                with Simplicity.
+
+            </h2>
+
+            <div class="about-grid">
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-code"></i>
+
+                    <h3>
+
+                        Frontend
+
+                    </h3>
+
+                    <p>
+
+                        Responsive interfaces
+                        using HTML, CSS,
+                        JavaScript and React.
+
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-server"></i>
+
+                    <h3>
+
+                        Backend
+
+                    </h3>
+
+                    <p>
+
+                        Spring Boot APIs,
+                        authentication and
+                        scalable architecture.
+
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-database"></i>
+
+                    <h3>
+
+                        Database
+
+                    </h3>
+
+                    <p>
+
+                        PostgreSQL,
+                        MySQL and
+                        optimized queries.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+
+    <section
+        id="skills"
+        class="section">
+
+        <div class="container">
+
+            <span class="section-tag">
+
+                SKILLS
+
+            </span>
+
+            <h2 class="section-title">
+
+                Technologies I Work With
+
+            </h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <i class="fab fa-html5"></i>
+
+                    <span>HTML5</span>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <i class="fab fa-css3-alt"></i>
+
+                    <span>CSS3</span>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <i class="fab fa-js"></i>
+
+                    <span>JavaScript</span>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <i class="fab fa-react"></i>
+
+                    <span>React</span>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <i class="fab fa-java"></i>
+
+                    <span>Java</span>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <i class="fa-solid fa-leaf"></i>
+
+                    <span>Spring Boot</span>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <i class="fa-solid fa-database"></i>
+
+                    <span>PostgreSQL</span>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <i class="fab fa-github"></i>
+
+                    <span>GitHub</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Continue in Part 2 -->
+
+
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects" class="section">
+
+        <div class="container">
+
+            <span class="section-tag">
+                PROJECTS
+            </span>
+
+            <h2 class="section-title">
+                Featured Projects
+            </h2>
+
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>ZakApps / LuxeVibe</h3>
+
+                        <p>
+                            Modern shopping website with a clean,
+                            responsive UI and engaging user
+                            experience.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-links">
+
+                            <a href="https://luxevibe1.netlify.app/"
+                               target="_blank">
+                                Live Demo
+                            </a>
+
+                            <a href="https://github.com/barath1324m/ZakApps"
+                               target="_blank">
+                                GitHub
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Project 2 -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>MK Training Center</h3>
+
+                        <p>
+                            Responsive institute website with
+                            registration system and modern design.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-links">
+
+                            <a href="https://mktrainingcenter.netlify.app/"
+                               target="_blank">
+                                Live Demo
+                            </a>
+
+                            <a href="https://github.com/barath1324m/mk-training-center"
+                               target="_blank">
+                                GitHub
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Project 3 -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>MK Training Backend</h3>
+
+                        <p>
+                            Spring Boot backend with PostgreSQL,
+                            REST APIs and registration management.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>PostgreSQL</span>
+                        </div>
+
+                        <div class="project-links">
+
+                            <a href="https://github.com/barath1324m/mk-training-center-backend"
+                               target="_blank">
+                                GitHub
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+
+    <section class="section" id="experience">
+
+        <div class="container">
+
+            <span class="section-tag">
+                JOURNEY
+            </span>
+
+            <h2 class="section-title">
+                Education & Career
+            </h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>B.Tech Information Technology</h3>
+
+                        <p>
+                            Developed strong foundations in
+                            software development and web
+                            technologies.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>Java Full Stack Training</h3>
+
+                        <p>
+                            Gained hands-on experience with
+                            Java, Spring Boot, REST APIs,
+                            databases and frontend development.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>Building Real Projects</h3>
+
+                        <p>
+                            Created responsive websites,
+                            backend services and deployed
+                            applications using Netlify and GitHub.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="section">
+
+        <div class="container contact-container">
+
+            <span class="section-tag">
+                CONTACT
+            </span>
+
+            <h2 class="section-title">
+                Let's Work Together
+            </h2>
+
+            <p class="contact-text">
+                Looking for a Full Stack Developer?
+                Feel free to reach out.
+            </p>
+
+            <div class="contact-buttons">
+
+                <a href="mailto:barath1324m@gmail.com"
+                   class="primary-btn">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    Email Me
+
+                </a>
+
+                <a href="https://github.com/barath1324m"
+                   target="_blank"
+                   class="secondary-btn">
+
+                    <i class="fab fa-github"></i>
+
+                    GitHub
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container footer-container">
+
+            <h2>&lt;Barath /&gt;</h2>
+
+            <p>
+                Full Stack Developer • Java • Spring Boot • React
+            </p>
+
+            <div class="footer-social">
+
+                <a href="https://github.com/barath1324m"
+                   target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://linkedin.com/in/barath01"
+                   target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+                <a href="mailto:barath1324m@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Barath M. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
+
