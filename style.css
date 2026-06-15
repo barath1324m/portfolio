@@ -1,6 +1,4 @@
-# `style.css` (Part 1 of 3)
 
-```css
 /* ===========================
    GOOGLE FONT & RESET
 =========================== */
@@ -395,10 +393,7 @@ nav a:hover{
     transform:translateY(-5px);
 
 }
-```
-# `style.css` (Part 2 of 3)
 
-```css
 /* ===========================
    HERO RIGHT - CODE WINDOW
 =========================== */
@@ -470,7 +465,7 @@ nav a:hover{
 .section-tag{
     display:inline-block;
     color:#8da2ff;
-    font-size:14px;
+    font-size:20px;
     letter-spacing:3px;
     margin-bottom:18px;
     font-weight:700;
@@ -654,10 +649,7 @@ nav a:hover{
         #00C2FF
     );
 }
-```
-# `style.css` (Part 3 of 3)
 
-```css
 /* ===========================
    TIMELINE
 =========================== */
@@ -956,4 +948,4 @@ footer{
         padding:80px 0;
     }
 }
-```
+

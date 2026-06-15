@@ -1,4 +1,4 @@
-```javascript
+javascript
 // ===============================
 // Mobile Menu
 // ===============================
@@ -219,4 +219,4 @@ if (copyright) {
     `© ${new Date().getFullYear()} Barath M. All Rights Reserved.`;
 
 }
-```
+
