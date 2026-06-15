@@ -103,92 +103,109 @@ a{
 
 }
 
-/* ===========================
+
+/* =========================
    HEADER
-=========================== */
+========================= */
 
-header{
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
-    position:fixed;
+    background: rgba(9, 9, 15, 0.85);
+    backdrop-filter: blur(15px);
 
-    width:100%;
-
-    top:0;
-    left:0;
-
-    z-index:999;
-
-    backdrop-filter:blur(18px);
-
-    background:rgba(9,9,15,.75);
-
-    border-bottom:1px solid rgba(255,255,255,.04);
-
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.nav-wrapper{
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    height:80px;
-
+    height: 80px;
+    width: min(1200px, 92%);
+    margin: 0 auto;
 }
 
-.logo{
+/* Logo */
 
-    color:#fff;
-
-    font-size:30px;
-
-    font-weight:800;
-
-    letter-spacing:.5px;
-
+.logo {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+    transition: 0.3s;
 }
 
-.logo:hover{
-
-    color:var(--secondary);
-
+.logo:hover {
+    color: #00c2ff;
 }
 
-nav{
+/* Navigation */
 
-    display:flex;
-
-    gap:35px;
-
+#nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-nav a{
-
-    color:#d7d7e5;
-
-    font-weight:500;
-
-    transition:.3s;
-
+#nav a {
+    text-decoration: none;
+    color: #d7d7e5;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-nav a:hover{
-
-    color:#fff;
-
+#nav a:hover,
+#nav a.active {
+    color: #00c2ff;
 }
 
-#menu-btn{
+/* Menu Button */
 
-    display:none;
-
-    font-size:28px;
-
-    cursor:pointer;
-
+#menu-btn {
+    display: none;
+    font-size: 28px;
+    color: #ffffff;
+    cursor: pointer;
 }
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 992px) {
+
+    #menu-btn {
+        display: block;
+    }
+
+    #nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        width: 220px;
+        background: #12131b;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 15px;
+        padding: 20px;
+        gap: 18px;
+        z-index: 9999;
+    }
+
+    #nav.show {
+        display: flex !important;
+    }
+}
+
+
 
 /* ===========================
    HERO

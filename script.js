@@ -1,222 +1,209 @@
-javascript
+
 // ===============================
-// Mobile Menu
+// Wait for DOM to Load
 // ===============================
+document.addEventListener("DOMContentLoaded", () => {
 
-const menuBtn = document.getElementById("menu-btn");
-const nav = document.getElementById("nav");
+  // ===============================
+  // Mobile Menu
+  // ===============================
+  const menuBtn = document.getElementById("menu-btn");
+  const nav = document.getElementById("nav");
 
-if (menuBtn && nav) {
-  menuBtn.addEventListener("click", () => {
-    nav.classList.toggle("show");
-  });
-
-  document.querySelectorAll("#nav a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("show");
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", () => {
+      nav.classList.toggle("show");
     });
+
+    document.querySelectorAll("#nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("show");
+      });
+    });
+  }
+
+  // ===============================
+  // Typing Effect
+  // ===============================
+  const typingElement = document.getElementById("typing");
+
+  const roles = [
+    "Full Stack Developer",
+    "Java Developer",
+    "Spring Boot Developer",
+    "React Developer",
+    "Frontend Developer"
+  ];
+
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeEffect() {
+
+    if (!typingElement) return;
+
+    const current = roles[roleIndex];
+
+    if (!isDeleting) {
+
+      typingElement.textContent =
+        current.substring(0, charIndex);
+
+      charIndex++;
+
+      if (charIndex > current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1500);
+        return;
+      }
+
+    } else {
+
+      typingElement.textContent =
+        current.substring(0, charIndex);
+
+      charIndex--;
+
+      if (charIndex < 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        charIndex = 0;
+      }
+
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+  }
+
+  typeEffect();
+
+  // ===============================
+  // Sticky Header
+  // ===============================
+  const header = document.querySelector("header");
+
+  window.addEventListener("scroll", () => {
+
+    if (!header) return;
+
+    if (window.scrollY > 50) {
+      header.style.background = "rgba(9,9,15,0.95)";
+    } else {
+      header.style.background = "rgba(9,9,15,0.75)";
+    }
+
   });
-}
 
-// ===============================
-// Typing Effect
-// ===============================
+  // ===============================
+  // Scroll Reveal
+  // ===============================
+  const revealItems = document.querySelectorAll(
+    ".about-card, .skill-card, .project-card, .timeline-item"
+  );
 
-const typingElement = document.getElementById("typing");
+  const observer = new IntersectionObserver(
+    (entries) => {
 
-const roles = [
-  "Full Stack Developer",
-  "Java Developer",
-  "Spring Boot Developer",
-  "React Developer",
-  "Frontend Developer"
-];
+      entries.forEach((entry) => {
 
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+        if (entry.isIntersecting) {
 
-function typeEffect() {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
 
-  if (!typingElement) return;
+        }
 
-  const currentRole = roles[roleIndex];
+      });
 
-  if (!isDeleting) {
-
-    typingElement.textContent =
-      currentRole.substring(0, charIndex + 1);
-
-    charIndex++;
-
-    if (charIndex === currentRole.length) {
-      isDeleting = true;
-      setTimeout(typeEffect, 1500);
-      return;
+    },
+    {
+      threshold: 0.15
     }
+  );
 
-  } else {
+  revealItems.forEach((item) => {
 
-    typingElement.textContent =
-      currentRole.substring(0, charIndex - 1);
+    item.style.opacity = "0";
+    item.style.transform = "translateY(40px)";
+    item.style.transition = "0.7s ease";
 
-    charIndex--;
+    observer.observe(item);
 
-    if (charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-    }
+  });
 
-  }
+  // ===============================
+  // Active Navigation
+  // ===============================
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("#nav a");
 
-  setTimeout(typeEffect, isDeleting ? 50 : 100);
+  window.addEventListener("scroll", () => {
 
-}
+    let current = "";
 
-typeEffect();
+    sections.forEach((section) => {
 
-// ===============================
-// Sticky Header
-// ===============================
+      const top = section.offsetTop - 120;
+      const height = section.offsetHeight;
 
-const header = document.querySelector("header");
+      if (
+        window.scrollY >= top &&
+        window.scrollY < top + height
+      ) {
+        current = section.id;
+      }
 
-window.addEventListener("scroll", () => {
+    });
 
-  if (!header) return;
+    navLinks.forEach((link) => {
 
-  if (window.scrollY > 40) {
+      link.classList.remove("active");
 
-    header.style.background =
-      "rgba(9,9,15,0.95)";
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
 
-  } else {
+    });
 
-    header.style.background =
-      "rgba(9,9,15,0.75)";
+  });
 
-  }
+  // ===============================
+  // Smooth Scroll
+  // ===============================
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
-});
+    anchor.addEventListener("click", function (e) {
 
-// ===============================
-// Scroll Reveal
-// ===============================
+      e.preventDefault();
 
-const revealElements = document.querySelectorAll(
-  ".about-card, .skill-card, .project-card, .timeline-item"
-);
+      const target =
+        document.querySelector(this.getAttribute("href"));
 
-const revealObserver = new IntersectionObserver(
+      if (target) {
 
-  (entries) => {
-
-    entries.forEach((entry) => {
-
-      if (entry.isIntersecting) {
-
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
 
       }
 
     });
 
-  },
+  });
 
-  {
-    threshold: 0.15
+  // ===============================
+  // Footer Year
+  // ===============================
+  const copyright =
+    document.querySelector(".copyright");
+
+  if (copyright) {
+
+    copyright.textContent =
+      `© ${new Date().getFullYear()} Barath M. All Rights Reserved.`;
+
   }
 
-);
-
-revealElements.forEach((element) => {
-
-  element.style.opacity = "0";
-  element.style.transform = "translateY(40px)";
-  element.style.transition = "all 0.7s ease";
-
-  revealObserver.observe(element);
-
 });
-
-// ===============================
-// Active Navigation
-// ===============================
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("#nav a");
-
-window.addEventListener("scroll", () => {
-
-  let current = "";
-
-  sections.forEach((section) => {
-
-    const top = section.offsetTop - 120;
-    const height = section.offsetHeight;
-
-    if (
-      window.scrollY >= top &&
-      window.scrollY < top + height
-    ) {
-      current = section.id;
-    }
-
-  });
-
-  navLinks.forEach((link) => {
-
-    link.classList.remove("active");
-
-    if (link.getAttribute("href") === "#" + current) {
-
-      link.classList.add("active");
-
-    }
-
-  });
-
-});
-
-// ===============================
-// Smooth Scroll
-// ===============================
-
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-
-  anchor.addEventListener("click", function (e) {
-
-    e.preventDefault();
-
-    const target =
-      document.querySelector(this.getAttribute("href"));
-
-    if (target) {
-
-      target.scrollIntoView({
-
-        behavior: "smooth"
-
-      });
-
-    }
-
-  });
-
-});
-
-// ===============================
-// Footer Copyright Year
-// ===============================
-
-const copyright =
-  document.querySelector(".copyright");
-
-if (copyright) {
-
-  copyright.textContent =
-    `© ${new Date().getFullYear()} Barath M. All Rights Reserved.`;
-
-}
 
